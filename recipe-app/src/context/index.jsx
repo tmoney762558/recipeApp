@@ -3,6 +3,7 @@ import { useState, createContext } from "react";
 export const GlobalContext = createContext(null);
 
 export default function GlobalState({ children }) {
+  const [previousLink, setPreviousLink] = useState("");
   const [searchParam, setSearchParam] = useState("");
   const [apiKey, setApiKey] = useState("acca8aff-0bc4-4ba8-9257-07656006b145");
   const [loading, setLoading] = useState(false);
@@ -10,6 +11,7 @@ export default function GlobalState({ children }) {
   const [recipeId, setRecipeId] = useState(null);
   const [recipeName, setRecipeName] = useState("");
   const [recipeData, setRecipeData] = useState(null);
+  const [savedRecipes, setSavedRecipes] = useState([]);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -31,7 +33,6 @@ export default function GlobalState({ children }) {
   const handleLoadRecipe = async (currentRecipeId) => {
     setLoading(true);
     try {
-      console.log(recipeId);
       const res = await fetch(
         `https://forkify-api.herokuapp.com/api/v2/recipes/${currentRecipeId}?key=${apiKey}`
       );
@@ -43,6 +44,15 @@ export default function GlobalState({ children }) {
       console.error(e);
       setLoading(false);
     }
+  };
+
+  const isSaved = (currentRecipe) => {
+    for (let i = 0; i < savedRecipes.length; i++) {
+      if (savedRecipes[i].id === currentRecipe) {
+        return true;
+      }
+    }
+    return false;
   };
 
   return (
@@ -60,6 +70,11 @@ export default function GlobalState({ children }) {
         handleLoadRecipe,
         setRecipeData,
         recipeData,
+        savedRecipes,
+        setSavedRecipes,
+        isSaved,
+        previousLink,
+        setPreviousLink,
       }}
     >
       {children}

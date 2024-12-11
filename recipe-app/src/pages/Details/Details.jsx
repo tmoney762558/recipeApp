@@ -4,7 +4,8 @@ import { GlobalContext } from "../../context";
 import { BackButton } from "../../components";
 
 const Details = () => {
-  const { recipeData, setRecipeData, loading } = useContext(GlobalContext);
+  const { recipeData, setRecipeData, loading, savedRecipes } =
+    useContext(GlobalContext);
 
   return (
     <div className="flex flex-col w-full">

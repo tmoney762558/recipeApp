@@ -1,3 +1,4 @@
+import React from "react"
 import { useContext } from "react";
 import { GlobalContext } from "../../context";
 import { NavLink } from "react-router-dom";
@@ -32,12 +33,12 @@ const Navbar = () => {
       <ul className="flex md:flex-1 flex-[0.75] justify-end gap-5">
         <li>
           <NavLink to="/">
-            <FaHome fill="rgb(248 113 113)" fontSize={"1.7rem"}></FaHome>
+            <FaHome fill="rgb(254 226 226)" fontSize={"1.7rem"}></FaHome>
           </NavLink>
         </li>
         <li>
           <NavLink to="/favorites">
-            <FaHeart fill="rgb(248 113 113)" fontSize={"1.7rem"}></FaHeart>
+            <FaHeart fill="rgb(254 226 226)" fontSize={"1.7rem"}></FaHeart>
           </NavLink>
         </li>
       </ul>
