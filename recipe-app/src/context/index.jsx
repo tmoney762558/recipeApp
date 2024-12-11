@@ -1,5 +1,5 @@
-import { useState, createContext } from "react";
-
+import { useState, useEffect, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 export const GlobalContext = createContext(null);
 
 export default function GlobalState({ children }) {
@@ -11,9 +11,13 @@ export default function GlobalState({ children }) {
   const [recipeId, setRecipeId] = useState(null);
   const [recipeName, setRecipeName] = useState("");
   const [recipeData, setRecipeData] = useState(null);
-  const [savedRecipes, setSavedRecipes] = useState([]);
+  const [savedRecipes, setSavedRecipes] = useState(
+    JSON.parse(localStorage.getItem("savedRecipes")) || []
+  );
 
-  const handleSubmit = async () => {
+  let navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
     try {
@@ -21,7 +25,7 @@ export default function GlobalState({ children }) {
         `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchParam}&key=${apiKey}`
       );
       const data = await res.json();
-      console.log(data);
+      navigate("/");
       setApiData(data);
       setLoading(false);
     } catch (e) {
@@ -54,6 +58,11 @@ export default function GlobalState({ children }) {
     }
     return false;
   };
+
+  useEffect(() => {
+    localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+    console.log(JSON.parse(localStorage.getItem("savedRecipes")));
+  }, [savedRecipes]);
 
   return (
     <GlobalContext.Provider

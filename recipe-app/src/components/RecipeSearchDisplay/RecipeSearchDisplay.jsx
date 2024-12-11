@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../context";
 import { NavLink } from "react-router-dom";
@@ -18,6 +18,7 @@ const RecipeSearchDisplay = () => {
     setSavedRecipes,
     setPreviousLink,
   } = useContext(GlobalContext);
+
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[3rem] mt-20 lg:px-10 px-5">
       {apiData && apiData.data.recipes.length && !loading
@@ -48,16 +49,13 @@ const RecipeSearchDisplay = () => {
                     setSavedRecipes((prevSavedRecipes) =>
                       prevSavedRecipes.filter((recipe) => recipe.id !== data.id)
                     );
-                    console.log(
-                      savedRecipes.filter((recipe) => recipe.id !== data.id)
-                    );
                   }}
                 ></FaHeart>
               )}
               <NavLink
                 to={`/recipe-details`}
                 onClick={() => {
-                  setPreviousLink("")
+                  setPreviousLink("");
                   setRecipeId(data.id);
                   setRecipeName(data.title);
                   handleLoadRecipe(data.id);

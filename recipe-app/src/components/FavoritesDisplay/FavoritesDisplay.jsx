@@ -27,9 +27,6 @@ const FavoritesDisplay = () => {
               setSavedRecipes((prevSavedRecipes) =>
                 prevSavedRecipes.filter((recipe) => recipe.id !== data.id)
               );
-              console.log(
-                savedRecipes.filter((recipe) => recipe.id !== data.id)
-              );
             }}
           ></FaHeart>
           <NavLink
