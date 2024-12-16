@@ -23,7 +23,7 @@ const RecipeSearchDisplay = () => {
     <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[3rem] mt-20 lg:px-10 px-5">
       {apiData && apiData.data.recipes.length && !loading
         ? apiData.data.recipes.map((data, index) => (
-            <div className="relative" key={index}>
+            <div className="relative slide-in-bottom" key={index}>
               {!isSaved(data.id) ? (
                 <FaHeart
                   className="absolute top-5 right-5 cursor-pointer"
