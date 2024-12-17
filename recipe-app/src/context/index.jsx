@@ -42,7 +42,6 @@ export default function GlobalState({ children }) {
         `https://forkify-api.herokuapp.com/api/v2/recipes/${currentRecipeId}?key=${apiKey}`
       );
       const data = await res.json();
-      console.log(data);
       setRecipeData(data);
       setLoading(false);
     } catch (e) {
@@ -62,7 +61,6 @@ export default function GlobalState({ children }) {
 
   useEffect(() => {
     localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-    console.log(JSON.parse(localStorage.getItem("savedRecipes")));
   }, [savedRecipes]);
 
   return (
