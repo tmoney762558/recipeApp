@@ -5,7 +5,8 @@ export const GlobalContext = createContext(null);
 export default function GlobalState({ children }) {
   const [previousLink, setPreviousLink] = useState("");
   const [searchParam, setSearchParam] = useState("");
-  const [apiKey, setApiKey] = useState("acca8aff-0bc4-4ba8-9257-07656006b145");
+  // API Key not needed???
+  const [apiKey, setApiKey] = useState("");
   const [loading, setLoading] = useState(false);
   const [apiData, setApiData] = useState(null);
   const [recipeId, setRecipeId] = useState(null);
