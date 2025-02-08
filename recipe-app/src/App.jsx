@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import { GlobalContext } from "./context";
 import { Navbar } from "./components";
 import { Home, Details, Favorites } from "./pages";
 
 const App = () => {
-  const { recipeId, recipeName } = useContext(GlobalContext);
 
   return (
     <div>

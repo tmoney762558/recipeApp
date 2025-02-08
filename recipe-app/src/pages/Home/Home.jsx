@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { RecipeSearchDisplay } from "../../components";
 import { GlobalContext } from "../../context";
 

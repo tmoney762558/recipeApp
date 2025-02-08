@@ -1,10 +1,9 @@
-import React from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../context";
 import { BackButton } from "../../components";
 
 const Details = () => {
-  const { recipeData, setRecipeData, loading, savedRecipes } =
+  const { recipeData, setRecipeData, loading } =
     useContext(GlobalContext);
 
   return (

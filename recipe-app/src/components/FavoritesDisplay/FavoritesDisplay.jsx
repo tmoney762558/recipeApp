@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../context";
 import { NavLink } from "react-router-dom";
@@ -6,9 +5,7 @@ import { FaHeart } from "react-icons/fa";
 
 const FavoritesDisplay = () => {
   const {
-    recipeId,
     setRecipeId,
-    recipeName,
     setRecipeName,
     handleLoadRecipe,
     savedRecipes,
@@ -16,9 +13,9 @@ const FavoritesDisplay = () => {
     setPreviousLink,
   } = useContext(GlobalContext);
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[3rem] mt-20 lg:px-10 px-5">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[3rem] w-full max-w-[100rem] mt-20 lg:px-10 px-5 pb-[3rem]">
       {savedRecipes.map((data, index) => (
-        <div className="relative slide-in-bottom" key={index}>
+        <div className="relative col-span-1 slide-in-bottom" key={index}>
           <FaHeart
             className="absolute top-5 right-5 cursor-pointer"
             fontSize={"2rem"}
