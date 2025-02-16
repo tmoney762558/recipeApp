@@ -6,7 +6,6 @@ export default function GlobalState({ children }) {
   const [previousLink, setPreviousLink] = useState("");
   const [searchParam, setSearchParam] = useState("");
   // API Key not needed???
-  const [apiKey, setApiKey] = useState("");
   const [loading, setLoading] = useState(false);
   const [apiData, setApiData] = useState(null);
   const [recipeId, setRecipeId] = useState(null);

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../../context";
 import { NavLink } from "react-router-dom";
 import { FaHome, FaHeart, FaSearch } from "react-icons/fa";
+import { GiHeavenGate } from "react-icons/gi";
 
 const Navbar = () => {
   const { searchParam, setSearchParam, handleSubmit } =
@@ -9,9 +10,11 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center py-5 lg:px-10 px-5 bg-red-300">
       <div className="lg:block hidden flex-1">
-        <h2 className="text-2xl font-bold">
-          <NavLink to={"/"}>Divine Recipes</NavLink>
-        </h2>
+        <NavLink className="flex items-center gap-3" to={"/"}>
+          <h2 className="text-2xl font-bold font-mono">Divine Recipes</h2>
+          <div className="p-2 bg-red-500 rounded-full"><GiHeavenGate fontSize={"1.5rem"} fill="white"></GiHeavenGate></div>
+          
+        </NavLink>
       </div>
       <form
         className="flex flex-1 justify-center items-center relative"

@@ -86,7 +86,7 @@ const RecipeSearchDisplay = () => {
       {apiData && apiData.data.recipes.length > recipesDisplayed && !loading ? (
         <div className="flex justify-center col-span-3 w-full">
         <button
-          className="lg:w-1/2 w-full py-2 bg-red-300 text-lg font-bold"
+          className="lg:w-1/2 w-full py-2 bg-red-300 border-4 border-red-200 text-lg font-bold"
           onClick={() => setRecipesDisplayed((prev) => prev + 9)}
         >
           Load More
