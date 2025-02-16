@@ -84,13 +84,13 @@ const RecipeSearchDisplay = () => {
           )
         : null}
       {apiData && apiData.data.recipes.length > recipesDisplayed && !loading ? (
-        <div className="flex justify-center col-span-3 w-full">
-        <button
-          className="lg:w-1/2 w-full py-2 bg-red-300 border-4 border-red-200 text-lg font-bold"
-          onClick={() => setRecipesDisplayed((prev) => prev + 9)}
-        >
-          Load More
-        </button>
+        <div className="flex justify-center w-full lg:col-span-3 md:col-span-2 col-span-1">
+          <button
+            className=" lg:w-1/2 w-full py-2 bg-red-300 border-4 border-red-200 text-lg font-bold"
+            onClick={() => setRecipesDisplayed((prev) => prev + 9)}
+          >
+            Load More
+          </button>
         </div>
       ) : null}
     </div>
